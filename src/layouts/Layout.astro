@@ -1,14 +1,35 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import NavBar from "../components/NavBar.astro";
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+const anim = {
+  old: {
+    name: "fadeIn",
+    duration: "1.2s",
+    easing: "ease",
+    fillMode: "forwards",
+  },
+  new: {
+    name: "fadeOut",
+    duration: "1.3s",
+    easing: "ease",
+    fillMode: "backwards",
+  },
+};
+
+const myFade = {
+  forwards: anim,
+  backwards: anim,
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -16,7 +37,7 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions transition:animate="slide" />
+    <ViewTransitions />
   </head>
   <body>
     <slot />

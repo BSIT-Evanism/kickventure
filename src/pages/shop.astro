@@ -1,18 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import DataRender from "../components/DataRender";
+import Marquees from "../components/Marquee";
+import Marq from "../components/Marq.astro";
+import { fade, slide } from "astro:transitions";
+
+const anim = {
+  old: {
+    name: "fadeIn",
+    duration: "2.2s",
+    easing: "linear",
+    fillMode: "forwards",
+  },
+  new: {
+    name: "fadeOut",
+    duration: "2.3s",
+    easing: "linear",
+    fillMode: "backwards",
+  },
+};
+
+const myFade = {
+  forwards: anim,
+  backwards: anim,
+};
 ---
 
 <Layout title="shop">
-  <a href="/">
-    <img
-      src="/webdev.webp"
-      alt="logo"
-      transition:name="logo"
-      class="absolute right-0 p-4"
-    />
-  </a>
-  <div class="w-auto h-auto">
+  <div
+    class="p-8 h-screen w-[8vw] flex flex-col items-center bg-lime-200 shadow-xl fixed top-0 right-0 z-20"
+    transition:animate={slide({ duration: "0.5s" })}
+  >
+    <a href="/">
+      <img src="/webdev.webp" alt="logo" transition:name="logo" class="z-20" />
+    </a>
+  </div>
+  <div class="w-[90vw] h-auto p-8">
     <DataRender client:load />
   </div>
+  <!-- <Marquees client:only /> -->
+  <Marq name="home" />
 </Layout>

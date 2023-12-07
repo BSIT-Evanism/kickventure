@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProductDesc from "../../components/ProductDesc";
+
+const { id } = Astro.params;
+---
+
+<Layout title={id}>
+    <h1>{id}</h1>
+    <ProductDesc idName={id} client:visible />
+</Layout>
