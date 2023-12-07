@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel/static";
 
 import sentry from "@sentry/astro";
 import spotlightjs from "@spotlightjs/astro";
