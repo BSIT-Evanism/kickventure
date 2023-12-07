@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import DataRender from "../components/DataRender";
+---
+
+<Layout title="shop">
+  <a href="/">
+    <img
+      src="/webdev.webp"
+      alt="logo"
+      transition:name="logo"
+      class="absolute right-0 p-4"
+    />
+  </a>
+  <div class="w-auto h-auto">
+    <DataRender client:load />
+  </div>
+</Layout>
