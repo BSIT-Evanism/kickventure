@@ -9,6 +9,6 @@ import spotlightjs from "@spotlightjs/astro";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), tailwind(), sentry(), spotlightjs()],
-  output: "hybrid",
+  output: "server",
   adapter: vercel(),
 });
