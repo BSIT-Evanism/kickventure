@@ -1,12 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ProductDesc from "../../components/ProductDesc";
+import ProdDesc from "../../components/ProdDesc.astro";
 
 const { id } = Astro.params;
 ---
 
 <Layout title={id} transition:animate="slide">
-    <div transition:name={id}>
+    <!-- <div transition:name={id}>
         <ProductDesc idName={id} client:only />
-    </div>
+    </div> -->
+    <ProdDesc idName={id} />
 </Layout>

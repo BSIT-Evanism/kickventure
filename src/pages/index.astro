@@ -61,6 +61,7 @@ import { fade } from "astro:transitions";
     <a
       href="/shop"
       class="group flex h-[70px] w-1/2 items-center justify-center gap-4 rounded-full bg-[#FFA1F5] text-2xl font-bold uppercase text-white transition-all duration-300 ease-in-out hover:brightness-75"
+      id="shopButton"
     >
       shop now{" "}
       <svg
@@ -68,6 +69,7 @@ import { fade } from "astro:transitions";
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
+        id="spinner"
         stroke="currentColor"
         class="h-8 w-8 transition-all duration-300 ease-in-out group-hover:translate-x-2"
       >
@@ -81,4 +83,12 @@ import { fade } from "astro:transitions";
     <Marq name="shop" />
   </div>
 </Layout>
-<style></style>
+<script is:inline>
+  document.addEventListener("astro:before-preparation", () => {
+    document.querySelector("#spinner").classList.add("animate-spin");
+  });
+
+  document.addEventListener("astro:after-preparation", () => {
+    document.querySelector("#spinner").classList.remove("animate-spin");
+  });
+</script>

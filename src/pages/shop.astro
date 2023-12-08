@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import DataRender from "../components/DataRender";
 import Marquees from "../components/Marquee";
 import Marq from "../components/Marq.astro";
+import DataShop from "../components/DataShop.astro";
 ---
 
 <Layout title="shop">
@@ -14,7 +15,8 @@ import Marq from "../components/Marq.astro";
     </a>
   </div>
   <div class="w-[90vw] h-auto p-8">
-    <DataRender client:load />
+    <!-- <DataRender client:load /> -->
+    <DataShop />
   </div>
   <!-- <Marquees client:only /> -->
   <Marq name="home" />
