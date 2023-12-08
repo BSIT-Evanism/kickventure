@@ -5,7 +5,8 @@ import ProductDesc from "../../components/ProductDesc";
 const { id } = Astro.params;
 ---
 
-<Layout title={id}>
-    <h1>{id}</h1>
-    <ProductDesc idName={id} client:visible />
+<Layout title={id} transition:animate="slide">
+    <div transition:name={id}>
+        <ProductDesc idName={id} client:only />
+    </div>
 </Layout>
