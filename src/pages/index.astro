@@ -91,4 +91,5 @@ import { fade } from "astro:transitions";
   document.addEventListener("astro:after-preparation", () => {
     document.querySelector("#spinner").classList.remove("animate-spin");
   });
+  localStorage.setItem("isLogin", false);
 </script>
