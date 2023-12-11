@@ -9,7 +9,7 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind(), sentry(), spotlightjs()],
+  integrations: [react(), tailwind()],
   output: "server",
   adapter: vercel(),
   prefetch: true,
