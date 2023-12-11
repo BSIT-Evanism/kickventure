@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PocketBase from 'pocketbase'
 import useSWR from 'swr';
+import toast, { Toaster } from 'react-hot-toast';
 
 const pb = new PocketBase('https://psc2023.azurewebsites.net')
 
@@ -30,11 +31,15 @@ function AdminPage() {
 
     const handleDelete = async () => {
         try {
+            toast.loading('Deleting...')
             deleteItem.forEach(async (item) => {
                 const record = await pb.collection('Products').delete(item)
             }
             )
+            toast.success('Deleted')
         } catch (error) {
+            toast.dismiss()
+            toast.error('Something went wrong')
             console.log(error)
         }
         setTimeout(() => {
@@ -76,6 +81,7 @@ function AdminPage() {
 
     const handleAddProduct = async () => {
         try {
+            toast.loading('Loading...')
             const dats = {
                 'product_name': newData.product_name,
                 'price': newData.price,
@@ -83,7 +89,11 @@ function AdminPage() {
                 'picture': file
             }
             const record = await pb.collection('Products').create(dats)
+            toast.dismiss()
+            toast.success('Product Added')
         } catch (error) {
+            toast.dismiss()
+            toast.error('Something went wrong', error)
             console.log(error)
         }
     }
@@ -103,6 +113,7 @@ function AdminPage() {
 
     return (
         <div className='p-4'>
+            <Toaster position='top-left' />
             <div className='w-full px-8 h-28 bg-fuchsia-300 rounded-2xl flex justify-between items-center' >
                 <h1 className='text-4xl font-bold text-center text-white'>Admin Page</h1>
                 <button onClick={() => document.getElementById('addproduct').showModal()} className='bg-white p-4 font-bold rounded-full uppercase text-black'>Add new product</button>

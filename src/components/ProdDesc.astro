@@ -9,12 +9,13 @@ const data = await res.json();
 console.log(data);
 ---
 
-<div>
+<div class="flex p-8">
   <figure>
     <img
       src={`https://psc2023.azurewebsites.net/api/files/Products/${data.id}/${data.picture}`}
       alt={data.id}
       transition:name={data.id}
+      class="mask mask-squircle"
     />
   </figure>
   <div class="w-auto h-auto card-body">
@@ -26,11 +27,6 @@ console.log(data);
     <div
       class="card-actions translate-x-80 group-hover:translate-x-0 justify-end transition-all duration-300 ease"
     >
-      <a
-        href={`/shop/${data.id}`}
-        class="bg-lime-200 px-4 py-8 font-bold uppercase text-black rounded-3xl"
-        >Check Details</a
-      >
     </div>
   </div>
 </div>

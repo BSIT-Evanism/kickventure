@@ -23,14 +23,28 @@ console.log(data);
             {item.product_name}
           </h1>
           <p>{item.price} pesos</p>
-          <p>{item.stocks}</p>
+          <div class="stat bg-white rounded-full">
+            <p class="stat-title">
+              {item.stocks > 1 ? (
+                <span>Stocks left: {item.stocks}</span>
+              ) : item.stocks === 1 ? (
+                <span>LAST STOCK LEFT</span>
+              ) : (
+                <span>OUT OF STOCKS</span>
+              )}
+            </p>
+          </div>
           <div class="card-actions translate-x-80 group-hover:translate-x-0 justify-end transition-all duration-300 ease">
             <a
-              href={`/shop/${item.id}`}
-              class="bg-lime-200 px-4 py-8 font-bold uppercase text-black rounded-3xl"
+              href={item.stocks === 0 ? "/shop/#" : `/shop/${item.id}`}
+              class={`px-4 py-8 curso font-bold uppercase text-black rounded-3xl ${
+                item.stocks === 0
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-lime-200"
+              }`}
               data-astro-prefetch
             >
-              Check Details
+              {item.stocks >= 1 ? "Check Details" : "Out of Stocks"}
             </a>
           </div>
         </div>
@@ -38,3 +52,5 @@ console.log(data);
     ))
   }
 </div>
+
+<script is:inline></script>

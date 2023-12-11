@@ -12,7 +12,7 @@ function ProductDesc({ idName }) {
         <div>
             {JSON.stringify(data)}
 
-            <div className='group shadow-xl hover:shadow-2xl hover:-translate-y-4 card w-full bg-base-100 image-full transition-all duration-300 overflow-hidden'>
+            <div className='group shadow-xl hover:shadow-2xl hover:-translate-y-4 card w-screen bg-base-100 image-full flex transition-all duration-300 overflow-hidden'>
                 <figure><img src={`https://psc2023.azurewebsites.net/api/files/Products/${data.id}/${data.picture}`} alt={data.id} style={{ viewTransitionName: `${data.id}` }} /></figure>
                 <div className='w-auto h-auto card-body'>
                     <h1 className="card-title text-4xl" style={{ viewTransitionName: `${data.product_name}` }}>{data.product_name}</h1>
