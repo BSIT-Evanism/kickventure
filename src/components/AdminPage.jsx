@@ -7,6 +7,7 @@ const pb = new PocketBase('https://psc2023.azurewebsites.net')
 const fetchData = (url) => fetch(url).then((res) => res.json());
 
 function AdminPage() {
+    const [deleteItem, setDeleteItem] = useState([])
     const [file, setFile] = useState(null)
     const [id, setId] = useState('')
     const [datas, setDatas] = useState({ 'product_name': '', 'price': 0, 'stocks': 0 })
@@ -16,6 +17,28 @@ function AdminPage() {
     useEffect(() => {
         checkLogin()
     }, [])
+
+    const handleDeleteItem = (e, id) => {
+        const isChecked = e.target.checked;
+        if (isChecked) {
+            setDeleteItem([...deleteItem, id])
+        } else {
+            setDeleteItem(deleteItem.filter((item) => item !== id))
+        }
+        console.log(deleteItem)
+    }
+
+    const handleDelete = async () => {
+        try {
+            deleteItem.forEach(async (item) => {
+                const record = await pb.collection('Products').delete(item)
+            }
+            )
+        } catch (error) {
+            console.log(error)
+        }
+        window.location.reload()
+    }
 
     const checkLogin = async () => {
         const res = await pb.collection('Admin').getOne('act8pbyn5l2vomv')
@@ -136,7 +159,7 @@ function AdminPage() {
                                     <tr key={i}>
                                         <th>
                                             <label>
-                                                <input type="checkbox" className="checkbox" />
+                                                <input type="checkbox" className="checkbox" onChange={(e) => handleDeleteItem(e, item.id)} id={item.id} />
                                             </label>
                                         </th>
                                         <td>
@@ -198,7 +221,7 @@ function AdminPage() {
 
                     </table>
                 </div>
-
+                {deleteItem.length > 0 && (<button onClick={handleDelete}>Delete All</button>)}
             </div >
         </div >
 

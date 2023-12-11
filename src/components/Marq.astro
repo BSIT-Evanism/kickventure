@@ -3,30 +3,30 @@ const { name } = Astro.props;
 ---
 
 <div
-    class={`${
-        name === "shop" ? "bg-lime-300" : "bg-fuchsia-300"
-    } w-full py-2 fixed ${name === "home" ? "top-0" : "bottom-0"} z-10`}
-    transition:name="marquee"
+  class={`${
+    name === "shop" ? "bg-lime-300" : "bg-fuchsia-300"
+  } w-full py-2 fixed ${name === "home" ? "top-0" : "bottom-0"} z-10`}
+  transition:name="marquee"
 >
-    <div class="flex gap-10 marque w-full">
-        <h1 class="font-bold uppercase">FOR PRE ORDER NOW</h1>
-        <h1 class="font-bold uppercase">ADIDAS SAMBA GREEN 💚</h1>
-        <h1 class="font-bold uppercase">PHP 6800 ( BELOW MARKET PRICE ❌ )</h1>
-        <h1 class="font-bold uppercase">PHP 1000 DOWNPAYMENT TO PROCEED</h1>
-    </div>
+  <div class="flex gap-10 marque w-full">
+    <h1 class="font-bold uppercase">FOR PRE ORDER NOW</h1>
+    <h1 class="font-bold uppercase">ADIDAS SAMBA GREEN 💚</h1>
+    <h1 class="font-bold uppercase">PHP 6800 ( BELOW MARKET PRICE ❌ )</h1>
+    <h1 class="font-bold uppercase">PHP 1000 DOWNPAYMENT TO PROCEED</h1>
+  </div>
 </div>
 
 <style is:inline>
-    .marque {
-        animation: scroll 30s linear infinite;
-    }
+  .marque {
+    animation: scroll 30s linear infinite;
+  }
 
-    @keyframes scroll {
-        0% {
-            transform: translateX(-50vw);
-        }
-        100% {
-            transform: translateX(50vw);
-        }
+  @keyframes scroll {
+    0% {
+      transform: translateX(-50vw);
     }
+    100% {
+      transform: translateX(50vw);
+    }
+  }
 </style>
