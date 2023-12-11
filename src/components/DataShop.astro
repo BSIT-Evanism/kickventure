@@ -1,6 +1,7 @@
 ---
+import CartComp from "./CartComp";
 const res = await fetch(
-  "https://psc2023.azurewebsites.net/api/collections/Products/records"
+  "https://psc2023.azurewebsites.net/api/collections/Products/records",
 );
 const data = await res.json();
 console.log(data);

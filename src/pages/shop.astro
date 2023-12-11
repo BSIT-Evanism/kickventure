@@ -4,6 +4,7 @@ import DataRender from "../components/DataRender";
 import Marquees from "../components/Marquee";
 import Marq from "../components/Marq.astro";
 import DataShop from "../components/DataShop.astro";
+import CartComp from "../components/CartComp";
 ---
 
 <Layout title="shop">
@@ -13,6 +14,7 @@ import DataShop from "../components/DataShop.astro";
     <a href="/" data-astro-prefetch>
       <img src="/webdev.webp" alt="logo" transition:name="logo" class="z-20" />
     </a>
+    <CartComp client:only />
   </div>
   <div class="w-[90vw] h-auto p-8">
     <!-- <DataRender client:load /> -->
