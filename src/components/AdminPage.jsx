@@ -37,7 +37,9 @@ function AdminPage() {
         } catch (error) {
             console.log(error)
         }
-        window.location.reload()
+        setTimeout(() => {
+            window.location.reload()
+        }, 1000)
     }
 
     const checkLogin = async () => {
@@ -66,8 +68,8 @@ function AdminPage() {
         }
     }
 
-    const handleDialog = (id) => {
-        document.getElementById(id).showModal()
+    const handleDialog = (name, id) => {
+        document.getElementById(name).showModal();
         setId(id)
         console.log(id)
     }
@@ -179,8 +181,8 @@ function AdminPage() {
                                         </td>
                                         <td>{item.stocks}</td>
                                         <th>
-                                            <button onClick={() => handleDialog(item.id)} className="btn btn-ghost btn-xs">Edit</button>
-                                            <dialog id={item.id} className="modal">
+                                            <button onClick={() => handleDialog(item.product_name, item.id)} className="btn btn-ghost btn-xs">Edit</button>
+                                            <dialog id={item.product_name} className="modal">
                                                 <div className="modal-box">
                                                     <form method="dialog">
                                                         {/* if there is a button in form, it will close the modal */}
@@ -221,7 +223,7 @@ function AdminPage() {
 
                     </table>
                 </div>
-                {deleteItem.length > 0 && (<button onClick={handleDelete}>Delete All</button>)}
+                {deleteItem.length > 0 && (<button className='btn btn-outline btn-error' onClick={handleDelete}>Delete All</button>)}
             </div >
         </div >
 
