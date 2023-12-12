@@ -1,6 +1,8 @@
 ---
 const { idName } = Astro.props;
-import CartComp from "../components/CartComp";
+import Marq from "../components/Marq.astro"
+
+import CartComp from "./CartComp.astro";
 
 const res = await fetch(
   `https://psc2023.azurewebsites.net/api/collections/Products/records/${idName}`,
@@ -11,7 +13,7 @@ console.log(data);
 ---
 
 <div class="flex p-8">
-  <CartComp client:only />
+  <CartComp url="/shop" />
   <figure>
     <img
       src={`https://psc2023.azurewebsites.net/api/files/Products/${data.id}/${data.picture}`}
@@ -43,6 +45,7 @@ console.log(data);
         </div>
       </div>
     </div>
+    <a href="/shop">Go back to Product List</a>
 
     <div
       class="card-actions translate-x-80 group-hover:translate-x-0 justify-end transition-all duration-300 ease"
@@ -50,3 +53,6 @@ console.log(data);
     </div>
   </div>
 </div>
+<Marq />
+
+

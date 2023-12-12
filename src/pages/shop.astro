@@ -4,17 +4,19 @@ import DataRender from "../components/DataRender";
 import Marquees from "../components/Marquee";
 import Marq from "../components/Marq.astro";
 import DataShop from "../components/DataShop.astro";
-import CartComp from "../components/CartComp";
+import CartComp from "../components/CartComp.astro";
 ---
 
 <Layout title="shop">
-  <div
+  <main>
+
+    <div 
     class="p-8 h-screen w-[8vw] flex flex-col items-center bg-lime-200 shadow-xl fixed top-0 right-0 z-20"
-  >
+    >
     <a href="/" data-astro-prefetch>
       <img src="/webdev.webp" alt="logo" transition:name="logo" class="z-20" />
     </a>
-    <CartComp client:only />
+    <CartComp url="" />
   </div>
   <div class="w-[90vw] h-auto p-8">
     <!-- <DataRender client:load /> -->
@@ -22,4 +24,5 @@ import CartComp from "../components/CartComp";
   </div>
   <!-- <Marquees client:only /> -->
   <Marq name="home" />
+</main>
 </Layout>
