@@ -1,6 +1,7 @@
 ---
 const { idName } = Astro.props;
 import Marq from "../components/Marq.astro"
+import AddCart from "./AddCart";
 
 import CartComp from "./CartComp.astro";
 
@@ -44,8 +45,11 @@ console.log(data);
           }
         </div>
       </div>
+      <AddCart client:load>
+        <div class="p-8 w-fit h-fit">Add to Cart</div>
+      </AddCart>
     </div>
-    <a href="/shop">Go back to Product List</a>
+    <a class="border-2 p-6 flex justify-center items-center rounded-full w-fit gap-8" href="/shop">Go back to Product List <span id="loadingspinner" class="loading-spinner loading-md"></span></a>
 
     <div
       class="card-actions translate-x-80 group-hover:translate-x-0 justify-end transition-all duration-300 ease"
@@ -55,4 +59,11 @@ console.log(data);
 </div>
 <Marq />
 
-
+<script>
+  document.addEventListener('astro:before-preparation', () => {
+    document.querySelector('#loadingspinner').classList.add('loading')
+  })
+  document.addEventListener('astro:after-preparation', () => {
+    document.querySelector('#loadingspinner').classList.remove('loading')
+  })
+</script>

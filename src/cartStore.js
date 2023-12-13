@@ -1,6 +1,6 @@
 import { atom } from 'nanostores';
 
-export const count = atom(0);
+export const counter = atom(0);
 export const toggle = atom(false);
 
 export function toggleCount() {
@@ -8,7 +8,7 @@ export function toggleCount() {
     console.log('toggle', toggle.get())
 }
 
-export function addNumber(count) {
-    count.set(count.get() + 1)
-    console.log('adding number', count.get())
+export function addNumber() {
+    counter.set(counter.get() + 1);
+    console.log('adding number', counter.get())
 }
