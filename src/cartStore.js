@@ -12,3 +12,8 @@ export function addNumber() {
     counter.set(counter.get() + 1);
     console.log('adding number', counter.get())
 }
+
+export function subtractNumber() {
+    counter.set(0);
+    console.log('subtracting number', counter.get())
+}

@@ -45,7 +45,7 @@ console.log(data);
           }
         </div>
       </div>
-      <AddCart client:load>
+      <AddCart client:load prodId={idName}>
         <div class="p-8 w-fit hover:bg-slate-100 select-none cursor-pointer border-l-2 h-full font-bold uppercase">Add to Cart</div>
       </AddCart>
     </div>
@@ -67,16 +67,12 @@ console.log(data);
     document.querySelector('#loadingspinner').classList.add('hidden')
     document.querySelector('#backtohome').classList.remove('bg-slate-200')
     document.querySelector('#backtohome').classList.remove('cursor-not-allowed')
+    document.querySelector('#addtocart').classList.remove('hidden')
   })
   document.addEventListener('astro:before-preparation', () => {
     document.querySelector('#loadingspinner').classList.remove('hidden')
     document.querySelector('#backtohome').classList.add('bg-slate-200')
     document.querySelector('#backtohome').classList.add('cursor-not-allowed')
-  })
-  document.addEventListener('astro:before-preparation', () => {
     document.querySelector('#addtocart').classList.add('hidden')
-  })
-  document.addEventListener('astro:after-preparation', () => {
-    document.querySelector('#addtocart').classList.remove('hidden')
   })
 </script>

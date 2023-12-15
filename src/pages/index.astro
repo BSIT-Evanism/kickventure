@@ -78,6 +78,7 @@ import { fade } from "astro:transitions";
           stroke-linejoin="round"
           d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
       </svg>
+      <span id="loadingspin" class="loading loading-spinner loading-lg hidden"></span>
     </a>
     <!-- <Marquees client:only /> -->
     <Marq name="shop" />
@@ -85,11 +86,13 @@ import { fade } from "astro:transitions";
 </Layout>
 <script is:inline>
   document.addEventListener("astro:before-preparation", () => {
-    document.querySelector("#spinner").classList.add("animate-spin");
+    document.querySelector("#spinner").classList.add("hidden");
+    document.querySelector("#loadingspin").classList.remove("hidden");
   });
-
+  
   document.addEventListener("astro:after-preparation", () => {
-    document.querySelector("#spinner").classList.remove("animate-spin");
+    document.querySelector("#spinner").classList.remove("hidden");
+    document.querySelector("#loadingspin").classList.add("hidden");
   });
   localStorage.setItem("isLogin", false);
 </script>

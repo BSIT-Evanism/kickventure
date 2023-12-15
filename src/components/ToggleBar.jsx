@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { toggle, counter } from '../cartStore'
 import { useStore } from '@nanostores/react'
 import { animate } from 'motion'
-
+import toast, { Toaster } from 'react-hot-toast'
 function ToggleBar() {
     const $toggle = useStore(toggle)
     const $count = useStore(counter)
@@ -18,9 +18,10 @@ function ToggleBar() {
 
     return (
         <>
+            <Toaster />
             <div ref={ref} className='bg-white rounded-2xl' >
                 {$count !== 0 && (<div className="indicator-item badge badge-secondary absolute -top-2 -right-2">{$count}</div>)}
-                total count: {$count}
+                <div className={`${$toggle ? "block" : "hidden"}`}>total count: {$count}</div>
             </div>
         </>
 
