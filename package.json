@@ -7,7 +7,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "lint:fix": "eslint \"src/**/*.{js,jsx}\" --fix"
   },
   "dependencies": {
     "@astrojs/node": "^7.0.0",
@@ -15,8 +17,8 @@
     "@astrojs/tailwind": "^5.0.3",
     "@astrojs/vercel": "^6.0.1",
     "@nanostores/react": "^0.7.1",
-    "@sentry/astro": "^7.86.0",
-    "@spotlightjs/astro": "^1.0.0",
+    "@sentry/astro": "^7.88.0",
+    "@spotlightjs/astro": "^1.0.6",
     "@swup/astro": "^1.4.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",

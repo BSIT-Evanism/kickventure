@@ -8,12 +8,12 @@ export function toggleCount() {
     console.log('toggle', toggle.get())
 }
 
-export function addNumber() {
+export function addNumber(): void {
     counter.set(counter.get() + 1);
     console.log('adding number', counter.get())
 }
 
-export function subtractNumber() {
+export function subtractNumber(): void {
     counter.set(0);
     console.log('subtracting number', counter.get())
 }
