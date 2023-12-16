@@ -2,6 +2,7 @@ import { atom } from 'nanostores';
 
 export const counter = atom(0);
 export const toggle = atom(false);
+export const cartItems = atom([]);
 
 export function toggleCount() {
     toggle.set(!toggle.get())
@@ -16,4 +17,13 @@ export function addNumber(): void {
 export function subtractNumber(): void {
     counter.set(0);
     console.log('subtracting number', counter.get())
+}
+
+export function addItem(item: string): void {
+    if (cartItems.get().map(i => i.name).includes(item)) {
+        cartItems.set([...cartItems.get(), { name: item, count: cartItems.get().find(i => i.name === item).count + 1 }])
+    } else {
+        cartItems.set([...cartItems.get(), { name: item, count: 1 }])
+    }
+    console.log(cartItems.get())
 }
