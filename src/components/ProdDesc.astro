@@ -14,6 +14,7 @@ console.log(data);
 ---
 
 <div class="flex p-8 w-full">
+  <div  id="bgcoverload" class="w-screen h-[30vh] pointer-events-none bg-slate-200 border-x-[20px] border-lime-500 z-50 top-[30vh] left-0 fixed  flex justify-center items-center"><h1 class="text-5xl font-bold uppercase text-center" transition:name="loadercart">{data.product_name}</h1></div>
   <CartComp url="/shop" />
   <figure>
     <img
@@ -64,6 +65,12 @@ console.log(data);
 <Marq />
 
 <script>
+  import {animate} from 'motion'
+
+  document.addEventListener('astro:page-load', () => {
+    animate('#bgcoverload', { y: '100vw'},{duration:1.5, easing: 'ease-in-out', delay: 0.5})
+  })
+  
   document.addEventListener('astro:after-preparation', () => {
     document.querySelector('#loadingspinner').classList.add('hidden')
     document.querySelector('#backtohome').classList.remove('bg-slate-200')

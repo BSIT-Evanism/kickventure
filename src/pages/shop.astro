@@ -3,11 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import Marq from "../components/Marq.astro";
 import DataShop from "../components/DataShop.astro";
 import CartComp from "../components/CartComp.astro";
+import ShopCart from "../components/ShopCart"
 ---
 
 <Layout title="shop">
   <main>
-
+    <div id="bgcoverdesc" class="w-screen h-[30vh] pointer-events-none bg-slate-200 border-x-[20px] border-lime-500 z-50 top-[100vh] left-0 fixed  flex justify-center items-center"><h1 class="text-5xl font-bold uppercase text-center" transition:name="loadercart">Loading...</h1></div>
     <div 
     class="p-8 h-screen w-[10vw] flex flex-col items-center bg-lime-200 shadow-xl fixed top-0 right-0 z-20"
     >
@@ -15,7 +16,9 @@ import CartComp from "../components/CartComp.astro";
       <img src="/webdev.webp" alt="logo" transition:name="logo" class="z-20" />
     </a>
     <!-- <CartComp url="" /> -->
-    <div transition:name="cartbutton" class="h-full bg-orange-300 w-24 rounded-full mt-4"></div>
+    <div transition:name="cartbutton" class="mt-4 w-fit h-fit">
+      <ShopCart client:load />
+    </div>
   </div>
   <div class="w-[90vw] h-auto p-8">
     <!-- <DataRender client:load /> -->
@@ -25,3 +28,12 @@ import CartComp from "../components/CartComp.astro";
   <Marq name="home" />
 </main>
 </Layout>
+
+<script>
+  import {animate} from 'motion';
+
+  document.addEventListener("astro:before-preparation", () => {
+    animate("#bgcoverdesc", {
+      top: "30vh"},{duration: 0.3, easing: "ease-in-out"});
+  });
+</script>

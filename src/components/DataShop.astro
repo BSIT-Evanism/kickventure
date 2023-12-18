@@ -8,6 +8,7 @@ console.log(data);
 ---
 
 <div class="grid grid-cols-3 gap-10">
+  
   {
     data.items.map((item, i) => (
       <div class="group shadow-xl hover:shadow-2xl hover:-translate-y-4 card w-full bg-base-100 image-full transition-all duration-300 overflow-hidden">
@@ -19,11 +20,12 @@ console.log(data);
             alt={item.product_name}
           />
         </figure>
-        <div class="w-auto h-auto card-body">
-          <h1 class="card-title text-4xl" transition:name={item.product_name}>
+        <div class="w-auto h-auto flex flex-col gap-8 p-10 z-10">
+          <h1 class=" text-white text-4xl" 
+          transition:name={item.product_name}>
             {item.product_name}
           </h1>
-          <p>{item.price} pesos</p>
+          <p class="text-white">{item.price} pesos</p>
           <div class="stat bg-white rounded-full z-10">
             <p class="stat-title">
               {item.stocks > 1 ? (
@@ -54,4 +56,3 @@ console.log(data);
   }
 </div>
 
-<script is:inline></script>

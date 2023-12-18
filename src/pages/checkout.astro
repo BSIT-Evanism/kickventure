@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro"
+import CheckoutView from "../components/CheckoutView"
+---
+
+<Layout title="checkout">
+    <main>
+        <div class="w-screen h-screen bg-lime-100 p-8">
+
+            <div class="titlediv">Checkout</div>
+            <a href="/shop" class="linktext" data-astro-prefetch>Back to Shop</a>
+            <CheckoutView client:load />
+        </div>
+    </main>
+</Layout>
+
+<style>
+.titlediv {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.linktext {
+    font-size: 30px;
+    text-decoration: underline;
+    color: blue;
+    font-weight: bold;
+}
+
+</style>../components/CheckoutView
