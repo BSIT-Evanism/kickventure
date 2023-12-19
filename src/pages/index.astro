@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Marquees from "../components/Marquee";
 import Marq from "../components/Marq.astro";
+import ContactPage from "../components/ContactPage.astro"
 import { fade } from "astro:transitions";
+import AboutPage from "../components/AboutPage.astro";
+import NavBar from "../components/NavBar.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <main
     class="flex h-auto w-auto flex-col items-center justify-center p-4 mt-28"
   >
+  <NavBar/>
     <div class="h-[50%] w-full">
       <img
         src="/webdev.webp"
@@ -47,7 +49,7 @@ import { fade } from "astro:transitions";
       </svg>
 
       <iframe
-        class="absolute right-0 top-0 h-1/2 w-1/2"
+        class="absolute pointer-events-none right-0 top-0 h-1/2 w-1/2"
         title="lottieshoes"
         src="https://lottie.host/embed/1e21b93a-43dc-4bac-abea-766e31c834a7/gZGKAvIabQ.json"
       ></iframe>
@@ -63,6 +65,7 @@ import { fade } from "astro:transitions";
       href="/shop"
       class="group flex h-[70px] w-1/2 items-center justify-center gap-4 rounded-full bg-[#FFA1F5] text-2xl font-bold uppercase text-white transition-all duration-300 ease-in-out hover:brightness-75"
       id="shopButton"
+      transition:name="cartbutton"
     >
       shop now{" "}
       <svg
@@ -82,6 +85,8 @@ import { fade } from "astro:transitions";
       <span id="loadingspin" class="loading loading-spinner loading-lg hidden"></span>
     </a>
     <!-- <Marquees client:only /> -->
+    <AboutPage />
+    <ContactPage />
     <Marq name="shop" />
   </main>
 </Layout>
