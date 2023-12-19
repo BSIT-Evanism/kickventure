@@ -91,6 +91,7 @@ function CheckoutView() {
                     ))}
                         Total Amount: {cartTotal}
                     </div>
+                    <img src="/gcash.jpg" className='mask mask-squircle' alt="gcash" />
                     <span className="text-gray-700 font-bold mr-6">Screenshot of Gcash receipt</span>
                     <input type="file" onChange={handleFileChange} className="file-input file-input-bordered file-input-primary w-full max-w-xs" />
                     {file && <img className='my-6' src={URL.createObjectURL(file)} alt={file.name} />}
