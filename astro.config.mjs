@@ -10,6 +10,5 @@ import spotlightjs from "@spotlightjs/astro";
 export default defineConfig({
   integrations: [react(), tailwind()],
   output: "server",
-  adapter: vercel(),
-  prefetch: true
+  adapter: vercel()
 });

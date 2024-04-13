@@ -12,7 +12,7 @@ function ToggleBar() {
     const $toggle = useStore(toggle)
     const $count = useStore(counter)
     const $cartItems = useStore(cartItems)
-    const { data, isLoading, error } = useSWR("https://psc2023.azurewebsites.net/api/collections/Products/records", fetcher)
+    const { data, isLoading, error } = useSWR("https://ecommerce.forkbun.evansolanoy.studio/api/collections/Products/records", fetcher)
 
     const cartAnim = {
         width: $toggle ? "300px" : 0,
@@ -32,7 +32,7 @@ function ToggleBar() {
         <>
             {console.log(data)}
             <Toaster position='top-right' />
-            <motion.div className="overflow-y-hidden" animate={cartAnim} transition={{ duration: 1, type: "tween", ease: "circOut" }} className={cartStyle} >
+            <motion.div animate={cartAnim} transition={{ duration: 1, type: "tween", ease: "circOut" }} className={cartStyle} >
                 {$cartItems.length !== 0 && (<div className="indicator-item badge badge-secondary absolute -top-2 -right-2">{indicatorValue}</div>)}
                 <div className={`${$toggle ? "block" : "hidden"} overflow-y-scroll h-full`}>total items:
                     {$cartItems.map((item, i) => {

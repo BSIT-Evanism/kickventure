@@ -10,7 +10,7 @@ import AddCart from "./AddCart";
 import CartComp from "./CartComp.astro";
 
 const res = await fetch(
-  `https://psc2023.azurewebsites.net/api/collections/Products/records/${idName}`,
+  `https://ecommerce.forkbun.evansolanoy.studio/api/collections/Products/records/${idName}`,
 );
 
 const data = await res.json();
@@ -22,7 +22,7 @@ console.log(data);
   <CartComp url="/shop" />
   <figure>
     <img
-      src={`https://psc2023.azurewebsites.net/api/files/Products/${data.id}/${data.picture}`}
+      src={`https://ecommerce.forkbun.evansolanoy.studio/api/files/Products/${data.id}/${data.picture}`}
       alt={data.id}
       transition:name={data.id}
       class="mask mask-squircle"

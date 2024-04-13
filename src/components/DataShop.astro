@@ -1,7 +1,7 @@
 ---
 import CartComp from "./CartComp.astro";
 const res = await fetch(
-  "https://psc2023.azurewebsites.net/api/collections/Products/records",
+  "https://ecommerce.forkbun.evansolanoy.studio/api/collections/Products/records",
 );
 const data = await res.json();
 console.log(data);
@@ -16,7 +16,7 @@ console.log(data);
           <img
             transition:name={item.id}
             class="group-hover:scale-125 transition-all duration-300"
-            src={`https://psc2023.azurewebsites.net/api/files/Products/${item.id}/${item.picture}`}
+            src={`https://ecommerce.forkbun.evansolanoy.studio/api/files/Products/${item.id}/${item.picture}`}
             alt={item.product_name}
           />
         </figure>

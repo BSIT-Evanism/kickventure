@@ -3,7 +3,7 @@ import PocketBase from 'pocketbase'
 import useSWR from 'swr';
 import toast, { Toaster } from 'react-hot-toast';
 
-const pb = new PocketBase('https://psc2023.azurewebsites.net')
+const pb = new PocketBase('https://ecommerce.forkbun.evansolanoy.studio')
 
 const fetchData = (url) => fetch(url).then((res) => res.json());
 
@@ -13,7 +13,7 @@ function AdminPage() {
     const [id, setId] = useState('')
     const [datas, setDatas] = useState({ 'product_name': '', 'price': 0, 'stocks': 0 })
     const [newData, setNewData] = useState({ 'product_name': '', 'price': 0, 'stocks': 0 })
-    const { data, isLoading, error } = useSWR('https://psc2023.azurewebsites.net/api/collections/Products/records', fetchData)
+    const { data, isLoading, error } = useSWR('https://ecommerce.forkbun.evansolanoy.studio/api/collections/Products/records', fetchData)
 
     useEffect(() => {
         checkLogin()
@@ -179,7 +179,7 @@ function AdminPage() {
                                             <div className="flex items-center gap-3">
                                                 <div className="avatar">
                                                     <div className="mask mask-squircle w-12 h-12">
-                                                        <img src={`https://psc2023.azurewebsites.net/api/files/Products/${item.id}/${item.picture}`} alt={item.id} />
+                                                        <img src={`https://ecommerce.forkbun.evansolanoy.studio/api/files/Products/${item.id}/${item.picture}`} alt={item.id} />
                                                     </div>
                                                 </div>
                                                 <div>

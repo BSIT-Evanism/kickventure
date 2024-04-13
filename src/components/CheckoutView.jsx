@@ -7,7 +7,7 @@ import PocketBase from 'pocketbase'
 import toast, { Toaster } from 'react-hot-toast';
 import { navigate } from 'astro:transitions/client';
 
-const pb = new PocketBase('https://psc2023.azurewebsites.net')
+const pb = new PocketBase('https://ecommerce.forkbun.evansolanoy.studio')
 
 const fetcher = (args) => fetch(args).then(res => res.json())
 
@@ -16,7 +16,7 @@ function CheckoutView() {
     const [cartItem, setCartItems] = useState([])
     const [cartTotal, setCartTotal] = useState(0)
     const [file, setFile] = useState(null)
-    const { data, isLoading, error } = useSWR("https://psc2023.azurewebsites.net/api/collections/Products/records", fetcher)
+    const { data, isLoading, error } = useSWR("https://ecommerce.forkbun.evansolanoy.studio/api/collections/Products/records", fetcher)
 
     const indicatorValue = $cartItems.reduce((total, item) => total + item.count, 0)
 
@@ -85,7 +85,7 @@ function CheckoutView() {
                     </form>
                     <div className="font-bold my-3 text-lg">{cartItem.map((items, i) => (
                         <div key={i} className='p-4'>
-                            <img className='mask mask-squircle w-10 h-auto' src={`https://psc2023.azurewebsites.net/api/files/Products/${items.id}/${items.picture}`} alt={i} />
+                            <img className='mask mask-squircle w-10 h-auto' src={`https://ecommerce.forkbun.evansolanoy.studio/api/files/Products/${items.id}/${items.picture}`} alt={i} />
                             <p>{items.product_name}</p>
                         </div>
                     ))}

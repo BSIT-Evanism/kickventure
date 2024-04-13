@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PocketBase from 'pocketbase'
 import toast, { Toaster } from 'react-hot-toast';
 
-const pb = new PocketBase('https://psc2023.azurewebsites.net')
+const pb = new PocketBase('https://ecommerce.forkbun.evansolanoy.studio')
 
 function LoginPage() {
 

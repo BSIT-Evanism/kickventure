@@ -9,7 +9,7 @@ const fetcher = (args) => fetch(args).then(res => res.json())
 
 function ShopCart() {
   const $cartItems = useStore(cartItems)
-  const { data, isLoading, error } = useSWR("https://psc2023.azurewebsites.net/api/collections/Products/records", fetcher)
+  const { data, isLoading, error } = useSWR("https://ecommerce.forkbun.evansolanoy.studio/api/collections/Products/records", fetcher)
 
   const [hover, setHover] = useState(false)
 
